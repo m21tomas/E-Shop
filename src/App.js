@@ -7,13 +7,21 @@ import {
 } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Hello from './components/Hello';
+
 import UsernameComponent from './components/UsernameComponent';
 import CartSummaryContainer from './components/CartSummaryContainer';
+import useToken from './useToken';
+import SelfDestructComponent from './components/SelfDestructTimerComponent';
+import ProductAdministrationComponent from './components/ProductAdministrationComponent';
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <UsernameComponent setToken={setToken} />
+  }
   return (
-   
+
     <div className="container">
       <Router>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,9 +31,12 @@ function App() {
                 <Link className="nav-link py-2" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link py-2 mx-3" to="/hello">Hello</Link>
+                <Link className="nav-link py-2 mx-3" to="/New-Product">New Product</Link>
               </li>
                 <UsernameComponent />
+              <li className="nav-item">
+                <Link className="nav-link py-2 mx-3" to="/destruct">Destruct</Link>
+              </li>
             </ul>
             <ul className="navbar-nav navbar-right">
               <li className="nav-item">
@@ -33,18 +44,17 @@ function App() {
               </li>
             </ul>
           </div>
-          
         </nav>
 
         <Switch>
-          <Route path="/hello">
-            <Hello />
+          <Route path="/New-Product">
+            <ProductAdministrationComponent />
           </Route>
-          <Route path="/">
-            {/* <Home /> */}
-          </Route>
-          <Route>
+          <Route path="/cart-details">
             <CartSummaryContainer />
+          </Route>
+          <Route path="/destruct">
+            <SelfDestructComponent />
           </Route>
         </Switch>
       </Router>

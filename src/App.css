@@ -2,7 +2,10 @@
   padding: 20px;
 }
 
-
+.formLabel {
+  font-weight: bold;
+  font-size: 20px;
+}
 
 
 
