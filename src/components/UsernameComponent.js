@@ -1,35 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 //import 'bootstrap/dist/css/bootstrap.min.css';
-
-async function loginUser(credentials) {
-  return fetch('http://localhost:8080/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json())
- }
  
- function UsernameComponent({ setToken }) {
+ class UsernameComponent extends React.Component {
 
-  const [username, setUserName] = useState();
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const token = await loginUser({
-      username
-    });
-    setToken(token);
+  constructor(){
+     super();
+     this.state = {username: ''};
   }
 
-  return(
-    <form className="d-flex mx-auto" onSubmit={handleSubmit}>
-        <input className="form-control me-2" type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} />
-        <button className="btn btn-outline-secondary" type="submit">Enter</button>
-    </form>
-  )
+  handleSubmit = (event) => this.setState({username: event.target.value});
+
+  // handleSubmit(event) {
+  //   this.setState({
+  //     username: event.target.value
+  //   });
+  //   event.preventDefault();
+  //   alert("UserName is " + this.username);
+  // }
+
+  render(){
+    return(
+      <form className="d-flex mx-auto">
+        <input className="form-control me-2" type="text" placeholder="Username"  />
+        <button className="btn btn-outline-secondary" type="submit" onSubmit={this.handleSubmit}>Enter</button>
+      </form>
+    );
+  }
+  
 }
 
 export default UsernameComponent;

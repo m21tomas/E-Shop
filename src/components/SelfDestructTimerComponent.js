@@ -1,11 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function SelfDestructComponent() {
+function SelfDestructTimerComponent() {
 
     var intervalID = setInterval(changeColor, 2500);
     
-
     function changeColor() {
         const oElem = document.getElementById("dest");
         oElem.style.backgroundColor = "Red";
@@ -15,7 +14,7 @@ function SelfDestructComponent() {
     return (
         <div className="container">
             <div className="row">
-                <table style={{"width": "auto"}} bordered>
+                <table style={{"width": "auto", "border": "1px solid black"}}>
                     <thead>
                         <tr>
                             <th>Description:</th>
@@ -24,7 +23,7 @@ function SelfDestructComponent() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Cell to destruct:</td>
+                            <td>Cell to destroy:</td>
                             <td id="dest">&nbsp;</td>
                         </tr>
                     </tbody>
@@ -35,4 +34,4 @@ function SelfDestructComponent() {
     );
 }
 
-export default SelfDestructComponent;
+export default SelfDestructTimerComponent;

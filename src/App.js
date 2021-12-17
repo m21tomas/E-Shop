@@ -10,16 +10,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import UsernameComponent from './components/UsernameComponent';
 import CartSummaryContainer from './components/CartSummaryContainer';
-import useToken from './useToken';
-import SelfDestructComponent from './components/SelfDestructTimerComponent';
+import SelfDestructTimerComponent from './components/SelfDestructTimerComponent';
 import ProductAdministrationComponent from './components/ProductAdministrationComponent';
 
-function App() {
-  const { token, setToken } = useToken();
 
-  if (!token) {
-    return <UsernameComponent setToken={setToken} />
-  }
+function App() {
+
   return (
 
     <div className="container">
@@ -47,6 +43,7 @@ function App() {
         </nav>
 
         <Switch>
+          
           <Route path="/New-Product">
             <ProductAdministrationComponent />
           </Route>
@@ -54,7 +51,7 @@ function App() {
             <CartSummaryContainer />
           </Route>
           <Route path="/destruct">
-            <SelfDestructComponent />
+            <SelfDestructTimerComponent />
           </Route>
         </Switch>
       </Router>
