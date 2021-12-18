@@ -8,6 +8,7 @@ import {
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Home from './components/Home';
 import UsernameComponent from './components/UsernameComponent';
 import CartSummaryContainer from './components/CartSummaryContainer';
 import SelfDestructTimerComponent from './components/SelfDestructTimerComponent';
@@ -24,7 +25,7 @@ function App() {
           <div className="container-fluid">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link py-2" to="/">Home</Link>
+                <Link className="nav-link py-2" to="/home">Home</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link py-2 mx-3" to="/New-Product">New Product</Link>
@@ -43,7 +44,9 @@ function App() {
         </nav>
 
         <Switch>
-          
+          <Route path="/home" onlyActiveOnIndex>
+            <Home />
+          </Route>
           <Route path="/New-Product">
             <ProductAdministrationComponent />
           </Route>

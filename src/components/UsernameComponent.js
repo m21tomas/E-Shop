@@ -1,29 +1,37 @@
 import React from 'react';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+// import {ServicesContext} from 'react';
  
  class UsernameComponent extends React.Component {
 
-  constructor(){
-     super();
-     this.state = {username: ''};
+  //handleSubmit = (event) => this.setState({name: event.target.value});
+  constructor(props){
+    super(props);
+    this.state={
+      name: ''
+    }
   }
 
-  handleSubmit = (event) => this.setState({username: event.target.value});
-
-  // handleSubmit(event) {
-  //   this.setState({
-  //     username: event.target.value
-  //   });
-  //   event.preventDefault();
-  //   alert("UserName is " + this.username);
-  // }
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      name: event.target.value
+    });
+    alert("UserName is " + this.name);
+  }
 
   render(){
+    
     return(
-      <form className="d-flex mx-auto">
-        <input className="form-control me-2" type="text" placeholder="Username"  />
-        <button className="btn btn-outline-secondary" type="submit" onSubmit={this.handleSubmit}>Enter</button>
-      </form>
+      // <ServicesContext.Consumer>
+      
+        <form className="d-flex mx-auto">
+        {/* {({userService}) => <span>{userService.name}</span>} */}
+          <input className="form-control me-2" type="text" placeholder="Username"  />
+          <button className="btn btn-outline-secondary" type="submit" onSubmit={this.handleSubmit}>Enter</button>
+        </form>
+      // </ServicesContext.Consumer>
+      
     );
   }
   

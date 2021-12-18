@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <ServicesContext.Provider value={{userService: userService}}> */}
+      <App />
+    {/* </ServicesContext.Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

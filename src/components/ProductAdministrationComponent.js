@@ -35,24 +35,7 @@ class ProductAdministrationComponent extends React.Component {
             price: this.state.price,
             quantity: this.state.quantity
         }
-
-        Items.push(item);
-
-        // return(
-        // <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-        //     <div style={{ "textAlign": "center" }} className="card">
-        //         <img
-        //             src={this.state.imageUrl}
-        //             className="card-img-top"
-        //             alt={"..."}
-        //         />
-        //         <h5 className="card-title">{this.state.title}</h5>
-        //         <p className="card-text">{this.state.description}</p>
-        //         <p className="card-text">Price: {this.state.price}</p>
-        //         <p className="card-text">Quantity: {this.state.quantity}</p>
-        //     </div>
-        // </div>
-        
+        Items.push(item) 
     }
 
     render() {
@@ -96,15 +79,9 @@ class ProductAdministrationComponent extends React.Component {
                     <button type="submit" className="btn btn-primary">Save</button>
                 </form>
 
-                {/* <form onSubmit={this.handleSubmit}>
-        <p className='formLabel'>Title:</p>
-        <input className="mx-2" type="text" value={this.state.title}
-            onChange={this.handleChange} name="title" />
-        <br />
-        <input type="submit" value="Save" />
-    </form> */}
             
             </div>
+            
             
             <div className="container">
                     <div className="row">
