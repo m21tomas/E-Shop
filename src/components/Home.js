@@ -8,9 +8,6 @@ class Home extends React.Component {
         super(props);
         this.state = {HerokuItems: []};
     }
-    // state = {
-    //     HerokuItems: []
-    // }
 
     componentDidMount() {
         axios.get('https://itpro2017.herokuapp.com/api/products')
