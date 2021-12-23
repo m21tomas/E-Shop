@@ -8,11 +8,11 @@ import {
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from './components/Home';
+import PradinisCentrai from './components/PradinisCentrai';
 import UsernameComponent from './components/UsernameComponent';
 import CartSummaryContainer from './components/CartSummaryContainer';
 import SelfDestructTimerComponent from './components/SelfDestructTimerComponent';
-import ProductAdministrationComponent from './components/ProductAdministrationComponent';
+import RegistrationComponent from './components/RegistrationComponent';
 
 
 function App() {
@@ -25,14 +25,14 @@ function App() {
           <div className="container-fluid">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link py-2" to="/home">Home</Link>
+                <Link className="nav-link py-2" to="/kodas-war">Vakcinu centrai</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link py-2 mx-3" to="/New-Product">New Product</Link>
+                <Link className="nav-link py-2 mx-3" to="/registracija">Registracija vakcinai</Link>
               </li>
-                <UsernameComponent />
+                {/* <UsernameComponent /> */}
               <li className="nav-item">
-                <Link className="nav-link py-2 mx-3" to="/destruct">Destruct</Link>
+                <Link className="nav-link py-2 mx-3" to="/vakcinos">Vakcinos</Link>
               </li>
             </ul>
             <ul className="navbar-nav navbar-right">
@@ -44,13 +44,13 @@ function App() {
         </nav>
 
         <Switch>
-          <Route path="/home" onlyActiveOnIndex>
-            <Home />
+          <Route path="/kodas-war" onlyActiveOnIndex>
+            <PradinisCentrai />
           </Route>
-          <Route path="/New-Product">
-            <ProductAdministrationComponent />
+          <Route path="/registracija">
+            <RegistrationComponent />
           </Route>
-          <Route path="/cart-details">
+          <Route path="/vakcinos">
             <CartSummaryContainer />
           </Route>
           <Route path="/destruct">
